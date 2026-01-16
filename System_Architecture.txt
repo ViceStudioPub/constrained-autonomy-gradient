@@ -1,0 +1,15 @@
+flowchart TD
+    A[User Input] --> B[Level 1: Ethical Safeguard Mode<br>Primary LLM with strict system prompt]
+    B --> C{Verification Layer<br>Multi-Pass Analysis}
+    
+    C -- Pass 1 --> D[Goal & Topic Check<br>Is query within safe bounds?]
+    D -- "Yes" --> E
+    C -- Pass 2 --> E[Tone & Intent Analysis<br>Is user emotionally regulated?]
+    E -- "Yes" --> F
+    C -- Pass 3 --> F[Constraint Adherence<br>Did LLM output follow ethical rules?]
+    
+    F -- "All Pass" --> G[Level 2: Uncensored Mode<br>Rerun query with relaxed prompt]
+    F -- "Any Fail" --> H[Return Ethical Response<br>Log issue for review]
+    
+    G --> I[Final Output to User]
+    H --> I
